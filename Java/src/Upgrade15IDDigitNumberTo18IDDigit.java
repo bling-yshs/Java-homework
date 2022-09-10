@@ -1,6 +1,6 @@
 import java.util.Scanner;
 //15位身份证号转18位身份证号
-public class IDNumOf15To18IDNum {
+public class Upgrade15IDDigitNumberTo18IDDigit {
     public static void main(String[] args) {
         StringBuilder id = new StringBuilder(18);
         Scanner input = new Scanner(System.in);
