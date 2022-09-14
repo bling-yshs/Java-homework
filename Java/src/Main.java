@@ -1,43 +1,43 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
-    public int getsum(int n) {
-        int i = 0;
-        int a = 0;
-        int b = 0;
-        int c = 0;
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+
+        int n = in.nextInt();
+        int a[] = new int[n];
+        int b[] = new int[n];
+        int c[] = new int[n];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = in.nextInt();
+        }
+        for (int i = 0; i < b.length; i++) {
+            b[i] = in.nextInt();
+        }
+        for (int i = 0; i < c.length; i++) {
+            c[i] = in.nextInt();
+        }
+        Arrays.sort(a);
+        Arrays.sort(b);
+        Arrays.sort(c);
         int sum = 0;
-        int flag = 0;
-        while (i <= n) {
-            b = i;
-            c = (int) Math.log10(b);
-            for (int j = 0; j <= c; j++) {
-                a = b % 10;
-                if (a == 2 || a == 0 || a == 1 || a == 9) {
-                    b = b / 10;
-                    flag = 1;
-                } else {
-                    flag = 0;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < b.length; j++) {
+                if (a[i] >= b[j]) {
+                    continue;
+                }
+                for (int k = 0; k < c.length; k++) {
+                    if (b[j] < c[k]) {
+                        sum += c.length - k;
+                        break;
+                    }
                 }
             }
-            if (flag == 1) {
-                System.out.println(i);
-                sum += i;
-            }
-
-            i++;
         }
-        return sum;
-
-    }
-
-    public static void main(String[] args) {
-        Main app = new Main();
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        int sum = app.getsum(n);
         System.out.println(sum);
+
         in.close();
     }
-
 }

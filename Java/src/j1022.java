@@ -25,8 +25,11 @@ public class j1022 {
         int sum = 0;
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < b.length; j++) {
+                if (a[i] >= b[j]) {
+                    continue;
+                }
                 for (int k = 0; k < c.length; k++) {
-                    if (a[i] < b[j] && b[j] < c[k]) {
+                    if (b[j] < c[k]) {
                         sum += c.length - k;
                         break;
                     }
